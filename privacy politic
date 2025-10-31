@@ -1,0 +1,50 @@
+Política de Seguridad de la Aplicación LearningMyGuitar
+
+Última actualización: 31 de octubre de 2025
+
+1. Propósito
+
+La presente política tiene como objetivo establecer las medidas de seguridad aplicadas en la aplicación LearningMyGuitar para proteger la información de los usuarios, garantizar la confidencialidad, integridad y disponibilidad de los datos, y prevenir accesos no autorizados.
+
+2. Alcance
+
+Esta política aplica a todos los usuarios de la aplicación, así como a los desarrolladores, administradores y colaboradores que tengan acceso a los sistemas y datos de LearningMyGuitar.
+
+3. Protección de Datos Personales
+
+La aplicación recopila únicamente los datos necesarios para el funcionamiento del servicio (nombre, correo electrónico y progreso de aprendizaje).
+
+La información del usuario no se comparte con terceros sin consentimiento explícito.
+
+Los datos se almacenan utilizando cifrado AES-256 y transmisión segura mediante HTTPS/TLS.
+
+4. Accesos y Autenticación
+
+Cada usuario debe acceder mediante credenciales únicas.
+
+Se recomienda el uso de contraseñas seguras.
+
+Se aplican medidas de bloqueo temporal ante múltiples intentos fallidos de inicio de sesión.
+
+5. Copias de Seguridad
+
+La información crítica del sistema se respalda periódicamente.
+
+Las copias de seguridad se almacenan en entornos seguros con acceso restringido.
+
+6. Actualizaciones y Mantenimiento
+
+Se implementan actualizaciones periódicas para mejorar la seguridad.
+
+Las vulnerabilidades detectadas serán corregidas en el menor tiempo posible.
+
+7. Responsabilidades del Usuario
+
+Mantener la confidencialidad de sus credenciales.
+
+Reportar cualquier actividad sospechosa o brecha de seguridad.
+
+8. Contacto
+
+Para consultas o reportes de seguridad, puede comunicarse con el equipo de soporte a:
+ihdez200607@gmail.com
