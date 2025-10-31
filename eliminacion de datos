@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eliminación de Datos - LearningMyGuitar</title>
+  <link rel="icon" href="icon.png" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff8c00, #ffcc70);
+      color: #222;
+      text-align: center;
+      padding: 40px;
+    }
+    h1 {
+      color: #222;
+      font-size: 2em;
+    }
+    p {
+      max-width: 600px;
+      margin: 20px auto;
+      font-size: 1.1em;
+      line-height: 1.6em;
+    }
+    button {
+      background-color: #222;
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      font-size: 1em;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background-color: #444;
+    }
+  </style>
+  <!-- 🔥 SDKs de Firebase (ajusta con tus credenciales) -->
+  <script type="module">
+    // Importar las librerías necesarias de Firebase
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+    import { getAuth, deleteUser } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+    import { getFirestore, doc, deleteDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+
+    // 🔧 Configuración de Firebase (reemplaza con tus datos reales)
+    const firebaseConfig = {
+      apiKey: "TU_API_KEY",
+      authDomain: "TU_DOMINIO.firebaseapp.com",
+      projectId: "TU_PROJECT_ID",
+      storageBucket: "TU_BUCKET.appspot.com",
+      messagingSenderId: "TU_SENDER_ID",
+      appId: "TU_APP_ID"
+    };
+
+    // Inicializar Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    // Función para eliminar datos y cuenta
+    async function deleteUserData() {
+      const user = auth.currentUser;
+      if (!user) {
+        alert("Debes iniciar sesión antes de eliminar tu cuenta.");
+        return;
+      }
+
+      try {
+        // 1️⃣ Eliminar documento del usuario en Firestore
+        await deleteDoc(doc(db, "users", user.uid));
+
+        // 2️⃣ Eliminar cuenta de autenticación
+        await deleteUser(user);
+
+        alert("Tu cuenta y datos se han eliminado correctamente.");
+      } catch (error) {
+        console.error("Error al eliminar datos:", error);
+        alert("Ocurrió un error al eliminar tus datos. Intenta nuevamente.");
+      }
+    }
+
+    // Exponer función al botón
+    window.deleteUserData = deleteUserData;
+  </script>
+</head>
+
+<body>
+  <h1>Eliminación de Datos del Usuario</h1>
+  <p>
+    En cumplimiento con las políticas de privacidad y los lineamientos de Meta,
+    puedes solicitar la eliminación completa de tus datos asociados a la app
+    <strong>LearningMyGuitar</strong>.
+  </p>
+  <p>
+    Si estás autenticado, presiona el siguiente botón para eliminar tu cuenta y todos tus datos
+    almacenados en nuestros servicios de Firebase.
+  </p>
+
+  <button onclick="deleteUserData()">Eliminar mis datos</button>
+
+  <p>
+    Si prefieres hacerlo manualmente, puedes enviarnos un correo a:
+    <br /><strong>seguridad@learningmyguitar.app</strong>
+  </p>
+</body>
+</html>
